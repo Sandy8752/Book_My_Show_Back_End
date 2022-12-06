@@ -6,16 +6,21 @@ let mongoose = require("mongoose");
 let app = express();
 app.use(cors());
 app.use(bodyparser.json());
+const { MONGODB } = process.env;
+
+mongoose.connect(process.env.MONGODB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  
+})
+.then(()=>console.log('Connected to db'))
+.catch((err)=> console.log("DB connection error",err));
+
 
 
 app.use("/", router);
 
-mongoose.connect("mongodb+srv://SANTHOSHKUMAR:7502221488S@cluster0.c3sul44.mongodb.net/Book-My-Show");
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "Connection error: "));
-db.once("open", function () {
-  console.log("Connected successfully");
-});
+
 
 app.get("/", function (req, res) {
   res.send("Welcome To Book My Show");
