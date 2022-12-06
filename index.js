@@ -6,6 +6,8 @@ let mongoose = require("mongoose");
 let app = express();
 app.use(cors());
 app.use(bodyparser.json());
+require("dotenv").config();
+
 const { MONGODB } = process.env;
 
 mongoose.connect(process.env.MONGODB, {
