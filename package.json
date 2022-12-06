@@ -22,6 +22,7 @@
     "mongoose": "^6.8.0",
     "node-fetch": "^3.3.0",
     "nodemon": "^2.0.20",
+    "dotenv": "^16.0.3",
     "username": "^6.0.0"
   }
 }
