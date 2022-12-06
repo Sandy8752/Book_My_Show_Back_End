@@ -21,6 +21,4 @@ app.get("/", function (req, res) {
   res.send("Welcome To Book My Show");
   
 });
-app.listen(8000, () => {
-  console.log("listening on ", 8000);
- });
+app.listen(process.env.PORT ||8000)
